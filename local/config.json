@@ -1,0 +1,75 @@
+{
+    "log": {
+        "loglevel": "warning",
+        "access": "/var/log/v2ray/access.log",
+        "error": "/var/log/v2ray/error.log"
+    },
+    "inbounds": [
+        {
+            "port": 10080,
+            "protocol": "socks",
+            "domainOverride": [
+                "tls",
+                "http"
+            ],
+            "settings": {
+                "aut": "noauth"
+            }
+        },
+        {
+            "port": 10081,
+            "protocol": "http",
+            "domainOverride": [
+                "tls",
+                "http"
+            ],
+            "settings": {
+                "aut": "noauth"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "__ADDRESS__",
+                        "port": 13128,
+                        "users": [
+                            {
+                                "id": "__UUID__",
+                                "alterId": 16
+                            }
+                        ]
+                    }
+                ]
+            },
+            "mux": {
+                "enable": true
+            }
+        },
+        {
+            "protocol": "shadowsocks",
+            "settings": {
+                "servers": [
+                    {
+                        "address": "__ADDRESS__",
+                        "port": 28388,
+                        "method": "aes-256-gcm",
+                        "password": "__UUID__"
+                    }
+                ]
+            }
+        },
+        {
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {}
+        }
+    ]
+}

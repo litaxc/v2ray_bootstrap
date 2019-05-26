@@ -1,0 +1,30 @@
+{
+    "inbounds": [
+        {
+            "port": 13128,
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "__UUID__",
+                        "alterId": 64
+                    }
+                ]
+            }
+        },
+        {
+            "port": 28388,
+            "protocol": "shadowsocks",
+            "settings": {
+                "method": "aes-256-gcm",
+                "password": "__UUID__"
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "freedom",
+            "settings": {}
+        }
+    ]
+}
