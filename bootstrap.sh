@@ -1,4 +1,5 @@
 export __ADDRESS__=
+export __PATH__=$PWD
 
 export __UUID__=$(uuidgen)
 export V2RAY_LOCATION_ASSET=.
@@ -13,5 +14,9 @@ rm config.json
 
 sed -i 's/__UUID__/'"${__UUID__}"'/g; s/__ADDRESS__/'"${__ADDRESS__}"'/g' ./local/config.json
 sed -i 's/__UUID__/'"${__UUID__}"'/g; s/__ADDRESS__/'"${__ADDRESS__}"'/g' ./server/config.json
+sed -i 's/__PATH__/'"${__PATH__}"'/g' ./v2ary.service
 
-nohup ./v2ray &
+# use systemd to make sure it start on boot
+sudo cp v2ray.service /etc/systemd/system/
+sudo systemctl start v2ray
+sudo systemctl enable v2ray

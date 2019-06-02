@@ -1,0 +1,14 @@
+[Unit]
+Description=V2ray service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=ubuntu
+ExecStart=/usr/bin/env __PATH__/v2ray -config __PATH__/server/config.json
+
+[Install]
+WantedBy=multi-user.target
