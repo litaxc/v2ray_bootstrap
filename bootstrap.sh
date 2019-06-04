@@ -1,4 +1,4 @@
-export __ADDRESS__=
+read -p "Enter your server's public IP: " __ADDRESS__
 export __PATH__=$PWD
 
 export __UUID__=$(uuidgen)
@@ -14,7 +14,10 @@ rm config.json
 
 sed -i 's/__UUID__/'"${__UUID__}"'/g; s/__ADDRESS__/'"${__ADDRESS__}"'/g' ./local/config.json
 sed -i 's/__UUID__/'"${__UUID__}"'/g; s/__ADDRESS__/'"${__ADDRESS__}"'/g' ./server/config.json
-sed -i 's/__PATH__/'"${__PATH__}"'/g' ./v2ary.service
+
+sudo mkdir -p /etc/v2ray
+sudo cp v2ray v2ctl /usr/local/bin
+sudo cp ./server/config.json /etc/v2ray/config.json
 
 # use systemd to make sure it start on boot
 sudo cp v2ray.service /etc/systemd/system/
