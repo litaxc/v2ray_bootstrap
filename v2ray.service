@@ -8,7 +8,7 @@ Type=simple
 Restart=always
 RestartSec=1
 User=ubuntu
-ExecStart=/usr/bin/env /usr/local/bin/v2ray -config /etc/v2ray/config.json
+ExecStart=/usr/bin/sudo /usr/bin/env /usr/local/bin/v2ray -config /etc/v2ray/config.json
 
 [Install]
 WantedBy=multi-user.target
