@@ -8,7 +8,7 @@ export V2RAY_LOCATION_CONFIG=./server
 sudo apt-get update
 sudo apt-get install -y unzip
 
-curl -o v2ray.zip -L https://github.com/v2ray/v2ray-core/releases/download/v4.18.2/v2ray-linux-64.zip
+curl -o v2ray.zip -L https://github.com/v2ray/v2ray-core/releases/download/v4.21.3/v2ray-linux-64.zip
 unzip v2ray.zip
 rm config.json
 

@@ -1,7 +1,7 @@
 {
     "inbounds": [
         {
-            "port": 13128,
+            "port": 80,
             "protocol": "vmess",
             "settings": {
                 "clients": [
@@ -13,11 +13,15 @@
             }
         },
         {
-            "port": 28388,
-            "protocol": "shadowsocks",
+            "port": 443,
+            "protocol": "vmess",
             "settings": {
-                "method": "aes-256-gcm",
-                "password": "__UUID__"
+                "clients": [
+                    {
+                        "id": "__UUID__",
+                        "alterId": 64
+                    }
+                ]
             }
         }
     ],
